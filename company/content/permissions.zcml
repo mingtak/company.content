@@ -1,0 +1,15 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:zcml="http://namespaces.zope.org/zcml"
+  i18n_domain="company.content">
+
+  <configure zcml:condition="installed AccessControl.security">
+
+    <permission
+      id="company.content.AddProductPage"
+      title="company.content: Add Product Page"
+      />
+
+  </configure>
+
+</configure>
