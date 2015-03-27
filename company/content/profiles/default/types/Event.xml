@@ -29,6 +29,8 @@
   <element value="plone.app.relationfield.behavior.IRelatedItems"/>
 <!--  <element value="plone.app.versioningbehavior.behaviors.IVersionable" /> -->
   <element value="funlog.behavior.namedfromtimestamp.INamedFromTimeStamp" />
+  <element value="company.behavior.contactemail.IContactEmail"/>
+  <element value="company.behavior.externalurl.IExternalUrl"/>
   <element value="company.behavior.leadimage.ILeadImage" />
   <element value="company.behavior.attachedfile.IAttachedFile" />
   <element value="plone.app.dexterity.behaviors.metadata.IPublication"/>

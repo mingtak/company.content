@@ -116,14 +116,14 @@
            Products.CMFDefault.interfaces.ICMFDefaultSkin
            plone.dexterity.interfaces.IDexterityFTI"
       provides="zope.publisher.interfaces.browser.IBrowserPage"
-      factory=".forms.AddView"
+      factory=".forms.EventAddView"
       name="Event"
       />
   <browser:page
       for="plone.app.contenttypes.interfaces.IEvent"
       name="edit"
       permission="cmf.ModifyPortalContent"
-      class=".forms.EditForm"
+      class=".forms.EventEditForm"
       />
 
   <!-- NewsItem -->
