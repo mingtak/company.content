@@ -35,6 +35,15 @@
       />
 
   <!-- -*- extra stuff goes here -*- -->
+
+    <plone:behavior
+        title="ShowMap"
+        description="Show map like google map"
+        provides=".showmap.IShowMap"
+        factory=".showmap.ShowMap"
+        for="plone.dexterity.interfaces.IDexterityContent"
+        />
+
   <include file="permissions.zcml" />
 
   <!-- Profile -->
@@ -149,7 +158,9 @@
       class=".forms.EditForm"
       />
 
-
+  <!-- z3c.jbot -->
+  <browser:jbot
+    directory="jbot_template" />
 
 
 

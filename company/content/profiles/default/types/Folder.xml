@@ -20,10 +20,11 @@
  <property name="allow_discussion">False</property>
  <property name="default_view">folder_listing</property>
  <property name="view_methods">
-  <element value="folder_summary_view"/>
+<!--  <element value="folder_summary_view"/>
   <element value="folder_full_view"/>
   <element value="folder_tabular_view"/>
   <element value="atct_album_view"/>
+-->
   <element value="folder_listing"/>
  </property>
  <property name="default_view_fallback">False</property>
@@ -33,12 +34,14 @@
 <!--  <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/> -->
 <!--  <element value="plone.app.content.interfaces.INameFromTitle"/> -->
 <!--  <element value="plone.app.dexterity.behaviors.discussion.IAllowDiscussion"/> -->
-<!--  <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/> -->
 <!--  <element value="Products.CMFPlone.interfaces.constrains.ISelectableConstrainTypes"/> -->
 <!--  <element value="plone.app.relationfield.behavior.IRelatedItems"/> -->
 <!--  <element value="plone.app.dexterity.behaviors.nextprevious.INextPreviousToggle"/> -->
      <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
+     <element value="company.behavior.searchabletext.ISearchableText"/>
+     <element value="company.behavior.leadimage.ILeadImage" />
      <element value="funlog.behavior.namedfromtimestamp.INamedFromTimeStamp" />
+     <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/>
  </property>
  <property name="schema"></property>
  <property name="model_source"></property>
