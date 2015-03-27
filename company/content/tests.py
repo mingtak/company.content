@@ -52,6 +52,14 @@ def test_suite():
 
         # -*- extra stuff goes here -*-
 
+        # Integration tests for Profile
+        ztc.ZopeDocFileSuite(
+            'Profile.txt',
+            package='company.content',
+            optionflags = OPTION_FLAGS,
+            test_class=TestCase),
+
+
         # Integration tests for ProductPage
         ztc.ZopeDocFileSuite(
             'ProductPage.txt',

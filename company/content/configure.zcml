@@ -37,4 +37,120 @@
   <!-- -*- extra stuff goes here -*- -->
   <include file="permissions.zcml" />
 
+  <!-- Profile -->
+  <adapter
+      for="Products.CMFCore.interfaces.IFolderish
+           Products.CMFDefault.interfaces.ICMFDefaultSkin
+           plone.dexterity.interfaces.IDexterityFTI"
+      provides="zope.publisher.interfaces.browser.IBrowserPage"
+      factory=".forms.AddView"
+      name="company.content.profile"
+      />
+  <browser:page
+      for=".profile.IProfile"
+      name="edit"
+      permission="cmf.ModifyPortalContent"
+      class=".forms.EditForm"
+      />
+
+  <!-- ProductPage -->
+  <adapter
+      for="Products.CMFCore.interfaces.IFolderish
+           Products.CMFDefault.interfaces.ICMFDefaultSkin
+           plone.dexterity.interfaces.IDexterityFTI"
+      provides="zope.publisher.interfaces.browser.IBrowserPage"
+      factory=".forms.AddView"
+      name="company.content.productpage"
+      />
+  <browser:page
+      for=".productpage.IProductPage"
+      name="edit"
+      permission="cmf.ModifyPortalContent"
+      class=".forms.EditForm"
+      />
+
+  <!-- Folder -->
+  <adapter
+      for="Products.CMFCore.interfaces.IFolderish
+           Products.CMFDefault.interfaces.ICMFDefaultSkin
+           plone.dexterity.interfaces.IDexterityFTI"
+      provides="zope.publisher.interfaces.browser.IBrowserPage"
+      factory=".forms.AddView"
+      name="Folder"
+      />
+  <browser:page
+      for="plone.app.contenttypes.interfaces.IFolder"
+      name="edit"
+      permission="cmf.ModifyPortalContent"
+      class=".forms.EditForm"
+      />
+
+  <!-- Image -->
+  <adapter
+      for="Products.CMFCore.interfaces.IFolderish
+           Products.CMFDefault.interfaces.ICMFDefaultSkin
+           plone.dexterity.interfaces.IDexterityFTI"
+      provides="zope.publisher.interfaces.browser.IBrowserPage"
+      factory=".forms.AddView"
+      name="Image"
+      />
+  <browser:page
+      for="plone.app.contenttypes.interfaces.IImage"
+      name="edit"
+      permission="cmf.ModifyPortalContent"
+      class=".forms.EditForm"
+      />
+
+  <!-- Event -->
+  <adapter
+      for="Products.CMFCore.interfaces.IFolderish
+           Products.CMFDefault.interfaces.ICMFDefaultSkin
+           plone.dexterity.interfaces.IDexterityFTI"
+      provides="zope.publisher.interfaces.browser.IBrowserPage"
+      factory=".forms.AddView"
+      name="Event"
+      />
+  <browser:page
+      for="plone.app.contenttypes.interfaces.IEvent"
+      name="edit"
+      permission="cmf.ModifyPortalContent"
+      class=".forms.EditForm"
+      />
+
+  <!-- NewsItem -->
+  <adapter
+      for="Products.CMFCore.interfaces.IFolderish
+           Products.CMFDefault.interfaces.ICMFDefaultSkin
+           plone.dexterity.interfaces.IDexterityFTI"
+      provides="zope.publisher.interfaces.browser.IBrowserPage"
+      factory=".forms.AddView"
+      name="News Item"
+      />
+  <browser:page
+      for="plone.app.contenttypes.interfaces.INewsItem"
+      name="edit"
+      permission="cmf.ModifyPortalContent"
+      class=".forms.EditForm"
+      />
+
+  <!-- Document -->
+  <adapter
+      for="Products.CMFCore.interfaces.IFolderish
+           Products.CMFDefault.interfaces.ICMFDefaultSkin
+           plone.dexterity.interfaces.IDexterityFTI"
+      provides="zope.publisher.interfaces.browser.IBrowserPage"
+      factory=".forms.AddView"
+      name="Document"
+      />
+  <browser:page
+      for="plone.app.contenttypes.interfaces.IDocument"
+      name="edit"
+      permission="cmf.ModifyPortalContent"
+      class=".forms.EditForm"
+      />
+
+
+
+
+
 </configure>

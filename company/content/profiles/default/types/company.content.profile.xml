@@ -1,36 +1,28 @@
 <?xml version="1.0"?>
-<object name="company.content.productpage"
+<object name="company.content.profile"
    meta_type="Dexterity FTI"
    i18n:domain="company.content" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
   <!-- Basic metadata -->
-  <property name="title" i18n:translate="">ProductPage</property>
+  <property name="title" i18n:translate="">Profile</property>
   <property name="description"
-    i18n:translate="">Product page</property>
-  <property name="icon_expr">string:${portal_url}/folder_icon.png</property>
-  <property name="factory">company.content.productpage</property>
+    i18n:translate="">Profile for company site</property>
+  <property name="icon_expr">string:${portal_url}/document_icon.png</property>
+  <property name="factory">company.content.profile</property>
   <property name="global_allow">True</property>
   <property name="filter_content_types">True</property>
-  <property name="allowed_content_types">
-   <element value="Image"/>  
-  </property>
+  <property name="allowed_content_types" />
   <property name="allow_discussion">False</property>
 
   <!-- schema and class used for content items -->
-  <property name="schema">company.content.productpage.IProductPage</property>
-  <property name="klass">company.content.productpage.ProductPage</property>
+  <property name="schema">company.content.profile.IProfile</property>
+  <property name="klass">company.content.profile.Profile</property>
 
   <property name="behaviors">
-<!--     <element value="plone.app.content.interfaces.INameFromTitle" /> -->
-     <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
-     <element value="company.behavior.leadimage.ILeadImage" />
-     <element value="company.behavior.attachedfile.IAttachedFile" />
-     <element value="company.behavior.tabs.ITabs" />
-     <element value="plone.app.relationfield.behavior.IRelatedItems" />
-<!--     <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/> -->
-     <element value="funlog.behavior.namedfromtimestamp.INamedFromTimeStamp" />
-     <element value="plone.app.dexterity.behaviors.metadata.IPublication"/>
-     <element value="company.behavior.searchabletext.ISearchableText"/>
+     <element value="plone.app.content.interfaces.INameFromTitle" />
+<!--     <element value="plone.app.dexterity.behaviors.metadata.IBasic"/> -->
+     <element value="company.behavior.slideshow.ISlideShow" />
+     <element value="collective.dexteritytextindexer.behavior.IDexterityTextIndexer" />
    </property>
 
   <!-- View information -->
@@ -41,7 +33,7 @@
    <element value="view"/>
   </property>
   <property name="default_view_fallback">False</property>
-  <property name="add_permission">company.content.AddProductPage</property>
+  <property name="add_permission">cmf.ManagePortal</property>
 
 
   <!-- Method aliases -->

@@ -32,10 +32,15 @@ class ProductPage(Container):
     grok.implements(IProductPage)
 
 
+from company.content.profile import SampleView
+
 class SampleView(grok.View):
     """ sample view class """
 
     grok.context(IProductPage)
     grok.require('zope2.View')
-    # grok.name('view')
+    grok.name('view')
     # Add view methods here
+
+    def getProfile(self):
+        return SampleView.profile
