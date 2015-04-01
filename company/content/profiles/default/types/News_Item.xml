@@ -12,9 +12,14 @@
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types"/>
  <property name="allow_discussion">False</property>
- <property name="default_view">newsitem_view</property>
+<!-- <property name="default_view">newsitem_view</property>
  <property name="view_methods">
   <element value="newsitem_view"/>
+ </property>
+-->
+ <property name="default_view">@@content_type_view</property>
+ <property name="view_methods">
+  <element value="content_type_view"/>
  </property>
  <property name="default_view_fallback">False</property>
  <property name="add_permission">plone.app.contenttypes.addNewsItem</property>
@@ -32,6 +37,7 @@
   <element value="funlog.behavior.namedfromtimestamp.INamedFromTimeStamp" />
 <!--  <element value="plone.app.versioningbehavior.behaviors.IVersionable" /> -->
   <element value="plone.app.dexterity.behaviors.metadata.IPublication"/>
+  <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable" />
  </property>
  <property name="schema"></property>
  <property name="model_source"></property>

@@ -15,14 +15,17 @@
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
 
+
     <ul>
       <li tal:repeat="item python:list(view.w.viewitems())" 
           tal:content="python:'%s: %s: %s' % (item[0], type(item[1]), item[1].value)" />
     </ul>
 <hr>
+
     <h2 class="title" tal:content="context/Title" />
 
     <p class="description" tal:content="context/Description" />
+
     <tal:item repeat="item python:list(view.w.viewitems())">
       <p tal:replace="structure python:item[1].render()"
          tal:condition="python:item[1].value and 'ILeadImage' not in item[0]" />
@@ -31,6 +34,11 @@
          tal:condition="python:item[1].value and 'ILeadImage' in item[0]" />
 
     </tal:item>
+
+    <p tal:define="brain context/getFolderContents" tal:repeat="item brain">
+      <a tal:condition="python:item.Type != 'Image'" tal:content="item/Title" tal:attributes="href item/getURL" />
+      <img tal:condition="python:item.Type == 'Image'" tal:attributes="src string:${item/getURL}/@@images/image" />
+    </p>
 
   </metal:content-core>
 </metal:main>

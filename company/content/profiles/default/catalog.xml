@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<object name="portal_catalog">
+
+    <column value="address"/>
+
+    <column value="phoneNo"/>
+
+    <column value="servicePhone"/>
+
+    <column value="faxNo"/>
+
+    <column value="emailAddr"/>
+
+    <column value="googleMap"/>
+
+    <column value="facebook"/>
+
+    <column value="googlePlus"/>
+
+    <column value="twitter"/>
+
+    <column value="linkedin"/>
+
+    <column value="fbMessage"/>
+
+    <column value="disqus"/>
+
+    <column value="addthis"/>
+
+    <column value="webAnalyticsCode"/>
+
+    <column value="metaCode"/>
+
+    <column value="usingPrivate"/>
+
+    <column value="privatePolicy"/>
+
+    <column value="copyright"/>
+
+</object>
+

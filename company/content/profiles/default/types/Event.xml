@@ -12,10 +12,17 @@
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types"/>
  <property name="allow_discussion">False</property>
- <property name="default_view">event_view</property>
+<!-- <property name="default_view">event_view</property> -->
+<!-- <property name="default_view">view</property>
  <property name="view_methods">
   <element value="event_view"/>
  </property>
+-->
+ <property name="default_view">@@content_type_view</property>
+ <property name="view_methods">
+  <element value="content_type_view"/>
+ </property>
+
  <property name="default_view_fallback">False</property>
  <property name="add_permission">plone.app.contenttypes.addEvent</property>
  <property name="klass">plone.app.contenttypes.content.Event</property>
@@ -34,6 +41,7 @@
   <element value="company.behavior.leadimage.ILeadImage" />
   <element value="company.behavior.attachedfile.IAttachedFile" />
   <element value="plone.app.dexterity.behaviors.metadata.IPublication"/>
+  <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable" />
  </property>
  <property name="schema"></property>
  <property name="model_source"></property>

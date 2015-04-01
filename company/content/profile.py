@@ -16,8 +16,10 @@ from plone.namedfile.interfaces import IImageScaleTraversable
 from z3c.relationfield.schema import RelationList, RelationChoice
 from plone.formwidget.contenttree import ObjPathSourceBinder
 
-from plone.memoize import ram
+#from plone.memoize import ram
 from plone import api
+from plone.indexer import indexer
+from plone.app.multilingual.interfaces import ILanguage
 
 from Products.CMFDefault.utils import checkEmailAddress
 from Products.CMFDefault.exceptions import EmailAddressInvalid
@@ -166,6 +168,7 @@ class IProfile(form.Schema, IImageScaleTraversable):
 
     usingPrivate = schema.Bool(
         title=_(u'Show private page'),
+        description=_(u'if check, private policy page will show in http://webhostname/language/@@private_page'),
         default=False,
         required=False,
     )
@@ -198,8 +201,104 @@ class GetProfile(grok.View):
     grok.context(Interface)
     grok.require('zope2.View')
 
-    @ram.cache(lambda *args: api.portal.get_tool(name='portal_catalog')(Type='Profile')[0].modified)
     def render(self):
+        context = self.context
         catalog = self.context.portal_catalog
-        self.profile = catalog({'Type':'Profile'})[0].getObject()
+        try:
+            language = ILanguage(context).get_language()
+        except:
+            self.profile = catalog({'Type':'Profile'})[0]
+            return self.profile
+        self.profile = catalog({'Type':'Profile','Language':language})[0]
         return self.profile
+
+
+@indexer(IProfile)
+def address_indexer(obj):
+    return obj.address
+grok.global_adapter(address_indexer, name='address')
+
+@indexer(IProfile)
+def phoneNo_indexer(obj):
+    return obj.phoneNo 
+grok.global_adapter(phoneNo_indexer, name='phoneNo')
+
+@indexer(IProfile)
+def servicePhone_indexer(obj):
+    return obj.servicePhone
+grok.global_adapter(servicePhone_indexer, name='servicePhone')
+
+@indexer(IProfile)
+def faxNo_indexer(obj):
+    return obj.faxNo
+grok.global_adapter(faxNo_indexer, name='faxNo')
+
+@indexer(IProfile)
+def emailAddr_indexer(obj):
+    return obj.emailAddr
+grok.global_adapter(emailAddr_indexer, name='emailAddr')
+
+@indexer(IProfile)
+def googleMap_indexer(obj):
+    return obj.googleMap
+grok.global_adapter(googleMap_indexer, name='googleMap')
+
+@indexer(IProfile)
+def facebook_indexer(obj):
+    return obj.facebook
+grok.global_adapter(facebook_indexer, name='facebook')
+
+@indexer(IProfile)
+def googlePlus_indexer(obj):
+    return obj.googlePlus
+grok.global_adapter(googlePlus_indexer, name='googlePlus')
+
+@indexer(IProfile)
+def twitter_indexer(obj):
+    return obj.twitter
+grok.global_adapter(twitter_indexer, name='twitter')
+
+@indexer(IProfile)
+def linkedin_indexer(obj):
+    return obj.linkedin
+grok.global_adapter(linkedin_indexer, name='linkedin')
+
+@indexer(IProfile)
+def fbMessage_indexer(obj):
+    return obj.fbMessage
+grok.global_adapter(fbMessage_indexer, name='fbMessage')
+
+@indexer(IProfile)
+def disqus_indexer(obj):
+    return obj.disqus
+grok.global_adapter(disqus_indexer, name='disqus')
+
+@indexer(IProfile)
+def addthis_indexer(obj):
+    return obj.addthis
+grok.global_adapter(addthis_indexer, name='addthis')
+
+@indexer(IProfile)
+def webAnalyticsCode_indexer(obj):
+    return obj.webAnalyticsCode
+grok.global_adapter(webAnalyticsCode_indexer, name='webAnalyticsCode')
+
+@indexer(IProfile)
+def metaCode_indexer(obj):
+    return obj.metaCode
+grok.global_adapter(metaCode_indexer, name='metaCode')
+
+@indexer(IProfile)
+def usingPrivate_indexer(obj):
+    return obj.usingPrivate
+grok.global_adapter(usingPrivate_indexer, name='usingPrivate')
+
+@indexer(IProfile)
+def privatePolicy_indexer(obj):
+    return obj.privatePolicy.raw
+grok.global_adapter(privatePolicy_indexer, name='privatePolicy')
+
+@indexer(IProfile)
+def copyright_indexer(obj):
+    return obj.copyright.raw
+grok.global_adapter(copyright_indexer, name='copyright')

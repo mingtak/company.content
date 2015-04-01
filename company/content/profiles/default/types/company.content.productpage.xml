@@ -31,15 +31,24 @@
      <element value="funlog.behavior.namedfromtimestamp.INamedFromTimeStamp" />
      <element value="plone.app.dexterity.behaviors.metadata.IPublication"/>
      <element value="company.behavior.searchabletext.ISearchableText"/>
+     <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable" />
    </property>
 
   <!-- View information -->
   <property name="link_target"></property>
+
+<!--
   <property name="immediate_view">view</property>
   <property name="default_view">view</property>
   <property name="view_methods">
    <element value="view"/>
   </property>
+-->
+  <property name="default_view">@@content_type_view</property>
+  <property name="view_methods">
+   <element value="content_type_view"/>
+  </property>
+
   <property name="default_view_fallback">False</property>
   <property name="add_permission">company.content.AddProductPage</property>
 

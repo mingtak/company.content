@@ -32,9 +32,9 @@ class ProductPage(Container):
     grok.implements(IProductPage)
 
 
-from company.content.profile import SampleView
+#from company.content.profile import SampleView
 
-class SampleView(grok.View):
+class SampleView(dexterity.DisplayForm):
     """ sample view class """
 
     grok.context(IProductPage)
@@ -42,5 +42,5 @@ class SampleView(grok.View):
     grok.name('view')
     # Add view methods here
 
-    def getProfile(self):
-        return SampleView.profile
+#    def getProfile(self):
+#        return SampleView.profile

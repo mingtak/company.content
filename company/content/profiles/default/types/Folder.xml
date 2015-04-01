@@ -18,15 +18,21 @@
   <element value="company.content.productpage"/>
  </property>
  <property name="allow_discussion">False</property>
- <property name="default_view">folder_listing</property>
+<!--  <property name="default_view">folder_listing</property>
  <property name="view_methods">
-<!--  <element value="folder_summary_view"/>
+  <element value="folder_summary_view"/>
   <element value="folder_full_view"/>
   <element value="folder_tabular_view"/>
   <element value="atct_album_view"/>
--->
   <element value="folder_listing"/>
  </property>
+-->
+
+ <property name="default_view">@@content_type_view</property>
+ <property name="view_methods">
+  <element value="content_type_view"/>
+ </property>
+
  <property name="default_view_fallback">False</property>
  <property name="add_permission">plone.app.contenttypes.addFolder</property>
  <property name="klass">plone.app.contenttypes.content.Folder</property>
@@ -42,6 +48,7 @@
      <element value="company.behavior.leadimage.ILeadImage" />
      <element value="funlog.behavior.namedfromtimestamp.INamedFromTimeStamp" />
      <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation"/>
+     <element value="plone.app.multilingual.dx.interfaces.IDexterityTranslatable" />
  </property>
  <property name="schema"></property>
  <property name="model_source"></property>
